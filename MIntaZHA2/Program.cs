@@ -162,7 +162,16 @@ namespace MIntaZHA2
                 while (Erdeklodes > 0)
                 {
                     Thread.Sleep(1000);
-                    Erdeklodes -= Util.rnd.Next(1, 6);                   
+                    int erd = Util.rnd.Next(1, 16);
+                    if (Erdeklodes - erd < 0)
+                    {
+                        Erdeklodes = 0;
+                    }
+                    else
+                    {
+                        Erdeklodes -= erd;
+
+                    }
                 }
                 this.Status = Allapot.tavozna;
                 
